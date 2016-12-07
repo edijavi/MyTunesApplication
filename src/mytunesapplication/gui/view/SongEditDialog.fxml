@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunesapplication.gui.controller.SongEditDialogController">
+    <children>
+        <Label layoutX="105.0" layoutY="47.0" text="Title" />
+        <Label layoutX="102.0" layoutY="89.0" text="Artist" />
+        <Label layoutX="81.0" layoutY="130.0" prefHeight="0.0" prefWidth="48.0" text="Category" />
+        <Label layoutX="103.0" layoutY="171.0" text="Time" />
+        <Label layoutX="107.0" layoutY="212.0" text="File" />
+        <TextField fx:id="txtFieldTitle" layoutX="160.0" layoutY="43.0" prefHeight="25.0" prefWidth="272.0" AnchorPane.leftAnchor="160.0" />
+        <TextField fx:id="txtFieldArtist" layoutX="160.0" layoutY="85.0" prefHeight="25.0" prefWidth="272.0" AnchorPane.leftAnchor="160.0" />
+        <TextField fx:id="txtFieldTime" layoutX="160.0" layoutY="167.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="160.0" />
+        <TextField fx:id="txtFieldFile" layoutX="160.0" layoutY="208.0" prefHeight="25.0" prefWidth="272.0" AnchorPane.leftAnchor="160.0" />
+        <Button fx:id="songEditMore" layoutX="300.0" layoutY="126.0" mnemonicParsing="false" text="More..." />
+        <Button fx:id="songEditChoose" layoutX="455.0" layoutY="208.0" mnemonicParsing="false" text="Choose..." />
+        <Button fx:id="songEditSave" layoutX="478.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleOk" text="Save" />
+        <Button fx:id="songEditCancel" layoutX="403.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+        <ComboBox fx:id="songEditCategory" layoutX="160.0" layoutY="126.0" prefHeight="25.0" prefWidth="134.0" />
+    </children>
+</AnchorPane>

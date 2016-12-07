@@ -5,23 +5,31 @@
  */
 package mytunesapplication.bll;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
  * @author Adam
  */
-public class Song
+public class Song extends Item
 {
 
-    private String title;
-    private String artist;
+    private SimpleStringProperty title;
+    private SimpleStringProperty artist;
     private String category;
     private String time;
     private String filePath;
 
+    public Song()
+    {
+        this.title = new SimpleStringProperty();
+        this.artist = new SimpleStringProperty();
+    }
+
     public Song(String title, String artist, String category, String time, String filePath)
     {
-        this.title = title;
-        this.artist = artist;
+        this.title = new SimpleStringProperty(title);
+        this.artist = new SimpleStringProperty(artist);
         this.category = category;
         this.time = time;
         this.filePath = filePath;
@@ -29,12 +37,12 @@ public class Song
 
     public void setTitle(String title)
     {
-        this.title = title;
+        this.title = new SimpleStringProperty(title);
     }
 
     public void setArtist(String artist)
     {
-        this.artist = artist;
+        this.artist = new SimpleStringProperty(artist);
     }
 
     public void setCategory(String category)
@@ -54,12 +62,12 @@ public class Song
 
     public String getTitle()
     {
-        return title;
+        return title.get();
     }
 
     public String getArtist()
     {
-        return artist;
+        return artist.get();
     }
 
     public String getCategory()
