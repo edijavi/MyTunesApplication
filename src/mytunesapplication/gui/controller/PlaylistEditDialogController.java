@@ -8,7 +8,6 @@ package mytunesapplication.gui.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import mytunesapplication.bll.Playlist;
 
 /**
@@ -27,9 +26,12 @@ public class PlaylistEditDialogController extends EditDialogController
     @FXML
     private void handleOk(ActionEvent event)
     {
-        playlist.setName(txtFieldName.getText());
-        okClicked = true;
-        dialogStage.close();
+        if (isInputValid())
+        {
+            playlist.setName(txtFieldName.getText().trim());
+            okClicked = true;
+            dialogStage.close();
+        }
     }
 
     /**
@@ -41,6 +43,31 @@ public class PlaylistEditDialogController extends EditDialogController
     {
         this.playlist = playlist;
         txtFieldName.setText(playlist.getName());
+    }
+
+    /**
+     * Validates the user input in the text fields.
+     *
+     * @return true if the input is valid
+     */
+    private boolean isInputValid()
+    {
+        String errorMessage = "";
+
+        if (txtFieldName.getText() == null || txtFieldName.getText().trim().length() == 0)
+        {
+            errorMessage += "Not valid playlist name!\n";
+        }
+
+        if (errorMessage.length() == 0)
+        {
+            return true;
+        } else
+        {
+            // Show the error message.
+            showAlert("Invalid Fields", "Please correct invalid fields", errorMessage);
+            return false;
+        }
     }
 
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunesapplication.gui.controller.PlaylistEditDialogController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunesapplication.gui.controller.PlaylistEditDialogController">
     <children>
         <Label layoutX="74.0" layoutY="55.0" text="Name" />
         <TextField fx:id="txtFieldName" layoutX="124.0" layoutY="51.0" prefHeight="25.0" prefWidth="245.0" />

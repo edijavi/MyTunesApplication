@@ -17,6 +17,10 @@ import mytunesapplication.gui.controller.PlaylistEditDialogController;
 public class DialogWindowPlaylist extends DialogWindow
 {
 
+    /**
+     *
+     * @return String - filePath for view
+     */
     @Override
     public String getViewPath()
     {
@@ -33,4 +37,3 @@ public class DialogWindowPlaylist extends DialogWindow
     }
 
 }
-

@@ -17,13 +17,15 @@ public class SongModel
 {
 
     /**
-     * The observable list, used for data binding the view to the model.
+     * The observable lists, used for data binding the view to the model.
      */
     private final ObservableList<Song> songs;
-    
+    private final ObservableList<Song> songsFilter;
+
     public SongModel()
     {
         songs = FXCollections.observableArrayList();
+        songsFilter = FXCollections.observableArrayList();
     }
 
     /**
@@ -35,15 +37,42 @@ public class SongModel
     {
         return songs;
     }
-    
+
+    /**
+     * Gets the observable list of songs with filter.
+     *
+     * @param filter
+     * @return
+     */
+    public ObservableList<Song> getSongsFilter(String filter)
+    {
+        songsFilter.clear();
+        for (Song song : songs)
+        {
+            if (song.getArtist().contains(filter) || song.getTitle().contains(filter) || song.getCategory().contains(filter))
+            {
+                songsFilter.add(song);
+            }
+        }
+        return songsFilter;
+    }
+
+    /**
+     *
+     * @param song
+     */
     public void addSong(Song song)
     {
         songs.add(song);
     }
-    
+
+    /**
+     *
+     * @param song
+     */
     public void deleteSong(Song song)
     {
         songs.remove(song);
     }
-    
+
 }

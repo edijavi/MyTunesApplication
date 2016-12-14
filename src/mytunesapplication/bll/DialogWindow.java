@@ -11,5 +11,5 @@ package mytunesapplication.bll;
  */
 public abstract class DialogWindow implements InterfaceDialogWindow
 {
-    
+
 }

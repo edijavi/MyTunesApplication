@@ -5,6 +5,9 @@
  */
 package mytunesapplication.bll;
 
+import java.io.File;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -16,23 +19,16 @@ public class Song extends Item
 
     private SimpleStringProperty title;
     private SimpleStringProperty artist;
-    private String category;
-    private String time;
+    private SimpleStringProperty category;
+    private LocalTime time;
     private String filePath;
 
     public Song()
     {
         this.title = new SimpleStringProperty();
         this.artist = new SimpleStringProperty();
-    }
-
-    public Song(String title, String artist, String category, String time, String filePath)
-    {
-        this.title = new SimpleStringProperty(title);
-        this.artist = new SimpleStringProperty(artist);
-        this.category = category;
-        this.time = time;
-        this.filePath = filePath;
+        this.category = new SimpleStringProperty("Other");
+        this.time = LocalTime.parse("00:00:00", DateTimeFormatter.ISO_LOCAL_TIME);
     }
 
     public void setTitle(String title)
@@ -47,10 +43,10 @@ public class Song extends Item
 
     public void setCategory(String category)
     {
-        this.category = category;
+        this.category = new SimpleStringProperty(category);
     }
 
-    public void setTime(String time)
+    public void setTime(LocalTime time)
     {
         this.time = time;
     }
@@ -72,10 +68,15 @@ public class Song extends Item
 
     public String getCategory()
     {
-        return category;
+        return category.get();
     }
 
     public String getTime()
+    {
+        return time.format(DateTimeFormatter.ISO_LOCAL_TIME);
+    }
+
+    public LocalTime getTimeDuration()
     {
         return time;
     }
@@ -85,4 +86,18 @@ public class Song extends Item
         return filePath;
     }
 
+    /**
+     * Deletes song file from PC
+     */
+    public void deleteFile()
+    {
+        try
+        {
+            File file = new File(filePath);
+            file.delete();
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
