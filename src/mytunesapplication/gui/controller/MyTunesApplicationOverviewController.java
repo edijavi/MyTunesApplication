@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -31,6 +32,7 @@ import mytunesapplication.bll.DialogWindowSong;
 import mytunesapplication.bll.Item;
 import mytunesapplication.bll.Playlist;
 import mytunesapplication.bll.Song;
+import mytunesapplication.dal.FileSystem;
 import mytunesapplication.gui.MyTunesApplication;
 import mytunesapplication.model.PlaylistModel;
 import mytunesapplication.model.SongModel;
@@ -67,7 +69,7 @@ public class MyTunesApplicationOverviewController implements Initializable
     private TextField txtFieldFilter;
     @FXML
     private Button buttonFilter;
-    
+
     /**
      * Initializes the controller class.
      *
