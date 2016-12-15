@@ -129,6 +129,9 @@ public class SongEditDialogController extends EditDialogController
         fileChooser.getExtensionFilters().add(extFilter);
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         File file = fileChooser.showOpenDialog(stage);
-        txtFieldFile.setText(file.getAbsolutePath());
+        if (file != null)
+        {
+            txtFieldFile.setText(file.getAbsolutePath());
+        }
     }
 }
